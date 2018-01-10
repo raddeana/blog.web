@@ -1,0 +1,42 @@
+{% include "common/head.html" %}
+<link rel="stylesheet" 
+      type="text/css" 
+      href="{% if env === 'development' %}/styles/voyage/app.css{% else %}http://ocgkyeaew.bkt.clouddn.com/styles/voyage/app-d41d8cd98f.min.css{% endif %}">
+{% include "common/navigation.html" %}   
+{% include "common/footer.html" %}
+ <script type="x-shader/x-vertex" id="vertexShader">
+
+    varying vec3 vWorldPosition;
+
+    void main() {
+
+        vec4 worldPosition = modelMatrix * vec4( position, 1.0 );
+        vWorldPosition = worldPosition.xyz;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+    }
+
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentShader">
+
+    uniform vec3 topColor;
+    uniform vec3 bottomColor;
+    uniform float offset;
+    uniform float exponent;
+
+    varying vec3 vWorldPosition;
+
+    void main() {
+
+        float h = normalize( vWorldPosition + offset ).y;
+        gl_FragColor = vec4( mix( bottomColor, topColor, max( pow( max( h , 0.0), exponent ), 0.0 ) ), 1.0 );
+
+    }
+
+</script>
+<script type="text/javascript" src="{% if env === 'development' %}/libs/three/three.min.js{% else %}http://ocgkyeaew.bkt.clouddn.com/libs/three/three.min.js{% endif %}"></script>
+<script type="text/javascript" src="{% if env === 'development' %}/scripts/voyage/app.js{% else %}http://ocgkyeaew.bkt.clouddn.com/scripts/voyage/app-2bc803e8f6.min.js{% endif %}"></script>
+</body>
+</html>

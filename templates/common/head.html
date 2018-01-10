@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>白昼之光</title>
+<link rel="bookmark"  
+      type="image/x-icon" 
+      href="{% if env === 'development' %}/images/ui/icon.png{% else %}http://ocgkyeaew.bkt.clouddn.com/images/ui/icon.png{% endif %}"/>
+<link rel="shortcut icon" 
+      href="{% if env === 'development' %}/images/ui/icon.png{% else %}http://ocgkyeaew.bkt.clouddn.com/images/ui/icon.png{% endif %}">       
+<!-- 加载进度条 --> 
+<link rel="stylesheet" 
+      type="text/css" 
+      href="{% if env === 'development' %}/libs/pace/pace.css{% else %}http://ocgkyeaew.bkt.clouddn.com/libs/pace/pace.css{% endif %}">
+<script type="text/javascript" 
+        src="{% if env === 'development' %}/libs/pace/pace.min.js{% else %}http://ocgkyeaew.bkt.clouddn.com/libs/pace/pace.min.js{% endif %}"></script>
+<!-- bootstrap style sheet --> 
+<link rel="stylesheet" 
+      type="text/css" 
+      href="{% if env === 'development' %}/libs/bootstrap/dist/css/bootstrap.min.css{% else %}http://ocgkyeaew.bkt.clouddn.com/libs/bootstrap/dist/css/bootstrap.min.css{% endif %}">
+<link rel="stylesheet" type="text/css" href="{% if env === 'development' %}/styles/ui/ui.css{% else %}http://ocgkyeaew.bkt.clouddn.com/styles/ui/ui-149cd943e5.min.css{% endif %}">      
+<script type="text/javascript">
+    var isBlogger = {{isBlogger}};
+</script>
+</head>
+<body>

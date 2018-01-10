@@ -1,0 +1,15 @@
+{% include "common/head.html" %}
+<link rel="stylesheet" 
+      type="text/css"
+      href="{% if env === 'development' %}/styles/services/app.css{% else %}http://ocgkyeaew.bkt.clouddn.com/styles/services/app-a0c877dd32.min.css{% endif %}">
+{% include "common/navigation.html" %}
+<app></app>
+{% include "common/footer.html" %}
+<footer class="footer-info">
+    @Philip Profession In Certain Filed.
+</footer>
+<script type="text/javascript" 
+        src="{% if env === 'development' %}/scripts/services/app.js{% else %}http://ocgkyeaew.bkt.clouddn.com/scripts/services/app-2b9e48cd06.min.js{% endif %}">
+</script>
+</body>
+</html>

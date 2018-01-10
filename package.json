@@ -1,0 +1,25 @@
+{
+  "name": "blog.services",
+  "version": "0.1.1",
+  "description": "blog.services",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mulberryx/blog.services.git"
+  },
+  "author": "mulberryx",
+  "bugs": { 
+    "url" :"https://github.com/mulberryx/blog.services/issues",
+    "email" :"wowcxy2008@126.com"
+  },
+  "scripts": {
+    "start": "node app.js --harmony",
+    "start:dev": "./node_modules/.bin/nodemon app.js --harmony",
+  },    
+  "dependencies": {
+    "nodemon": "latest",
+    "shelljs": "latest",   
+  },
+  "devDependencies": {
+    "mocha": "latest",
+  }
+}

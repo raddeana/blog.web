@@ -1,0 +1,257 @@
+@size: 60px;
+
+.cube-wrapper {
+    background: #13CE66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 285px;
+    margin: -25px;
+    padding: 0;
+    -webkit-transform:translate3d(0,0,0);    
+}
+
+.cube {
+    height: @size * 2;
+    width: @size * 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: rotate(-60deg);
+    animation: spin 3s ease-in-out 0s infinite;
+
+    .white, .light, .dark{
+        position: absolute;
+        width: @size;
+        height: @size;
+
+        &:after{
+            content:'';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 30px 52.0px 30px;
+            border-color: transparent transparent #007bff transparent;
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            margin: auto;
+            animation: animateAfter 3s ease-in-out 0s infinite;
+        }
+
+        &:before{
+            content:'';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 30px 52.0px 30px;
+            border-color: transparent transparent #007bff transparent;
+            position: absolute;
+            top:50px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform:rotate(180deg);
+            margin: auto;
+            animation: animateBefore 3s ease-in-out 0s infinite;
+        }
+    }
+    .white{
+        transform:rotate(-30deg);
+        left:5px;
+        bottom:16px;
+        animation: containerWhite 3s ease-in-out 0s infinite;
+
+        &:after{
+            border-color: transparent transparent #FFFFFF transparent;
+        }   
+        &:before{
+            border-color: transparent transparent #FFFFFF transparent;
+        }   
+    }
+    .light{
+        transform:rotate(30deg);
+        right:5px;
+        bottom:16px;
+        animation: containerLight 3s ease-in-out 0s infinite;
+
+        &:after{
+            border-color: transparent transparent #85DBED transparent;
+        }   
+        &:before{
+            border-color: transparent transparent #85DBED transparent;
+        }   
+    }
+    .dark{
+        transform:rotate(90deg);
+        top: 0;
+        animation: containerDark 3s ease-in-out 0s infinite;
+
+        &:after{
+            border-color: transparent transparent #4BCAEB transparent;
+        }   
+        &:before{
+            border-color: transparent transparent #4BCAEB transparent;
+        }   
+    }
+}
+
+@keyframes containerWhite {
+    0%   { left: 5px;  bottom: 16px; }
+    50%   { left: 5px;  bottom: 16px; }
+    70%   { left: -9px;  bottom: 4px; }
+    100%   { left: 5px;  bottom: 16px; }
+}
+@keyframes containerLight {
+    0%   { right: 5px;  bottom: 16px; }
+    50%   { right: 5px;  bottom: 16px; }
+    70%   { right: -9px;  bottom: 4px; }
+    100%   { right: 5px;  bottom: 16px; }
+}
+@keyframes containerDark {
+    0%   { top: 0; }
+    50%   { top: 0; }
+    70%   { top: -10px; }
+    100%   { top: 0; }
+}
+
+@keyframes animateBefore {
+    0%   { top: 50px; }
+    50%   { top: 50px; }
+    70%   { top: 70px; }
+    100%   { top: 50px; }
+}
+
+@keyframes animateAfter {
+    0%   { bottom: 50px; }
+    50%   { bottom: 50px; }
+    70%   { bottom: 70px; }
+    100%   { bottom: 50px; }
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    75%   { transform: rotate(360deg); }
+    100%   { transform: rotate(0deg); }
+}
+
+
+// Colors
+@bg: #F7BA2A;
+@blue: #00D7FE;
+
+// Animation
+@animation-duration: 1.2s;
+@animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+@circle-perimeter: 2 * 3.14 * 80; // 2πr 
+
+.atom-wrapper {
+    margin: -25px;
+    height: 285px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @bg;
+}
+
+.atom {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  
+    &::before {
+        font-size: 6px; // Size of the particle in the center
+        width: 1em;
+        height: 1em;
+        background: @blue;
+        border-radius: 50%;
+        box-shadow: 0 0 1.5em 1px @blue;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+  
+    &_particle {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-style: preserve-3d;
+
+        svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+            circle {
+                stroke: @blue;
+                stroke-dasharray: @circle-perimeter;
+                stroke-dashoffset: @circle-perimeter;
+                animation: draw-circle @animation-duration @animation-timing-function infinite;
+            }
+        }
+    
+        @keyframes draw-circle {
+            0% {
+            stroke-dashoffset: @circle-perimeter;
+            }
+
+            50% {
+            stroke-dashoffset: 0;
+            }
+
+            100% {
+            stroke-dashoffset: -@circle-perimeter;
+            }
+        }
+        
+        &:nth-child(1){
+            transform: rotateX(80deg) rotateY(20deg);
+        }
+
+        &:nth-child(2){
+            transform: rotateX(75deg) rotateY(60deg);
+
+            circle {
+                animation-delay: .125s;
+            }
+        }
+        
+        &:nth-child(3){
+            transform: rotateX(-75deg) rotateY(60deg);
+
+            circle {
+                animation-delay: .25s;
+            }
+        }
+        
+        &:nth-child(4){
+            transform: rotateX(-80deg) rotateY(20deg);
+
+            circle {
+                animation-delay: .375s;
+            }
+        }
+    }
+}
+
+.intrusion-wrapper {
+    .ant-card-body {
+        padding: 0;
+    }
+
+    .intrusion {
+        background-color: #20A0FF;
+        display: block;
+        height: 285px;
+        width: 100%;
+    }
+}
