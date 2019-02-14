@@ -1,5 +1,7 @@
-// https://github.com/michael-ciniawsky/postcss-load-config
-
+/***
+ * 配置文件
+ * @author Philip
+ */
 module.exports = {
   "plugins": {
     "postcss-import": {},

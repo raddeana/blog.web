@@ -2,6 +2,7 @@
  * Eslint 配置
  * @author Philip
  */
+
 module.exports = {
   root: true,
   parserOptions: {
