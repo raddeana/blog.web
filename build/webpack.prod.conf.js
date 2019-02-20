@@ -113,6 +113,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
     
+    // manifest file
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      prettyPrint: true
+    })
     // // copy custom static assets
     // new CopyWebpackPlugin([
     //   {
