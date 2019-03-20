@@ -1,24 +1,27 @@
-{% include "common/head.html" %}
-<link rel="stylesheet" 
-      type="text/css"
-      href="{% if env === 'development' %}/styles/home/app.css{% else %}http://ocgkyeaew.bkt.clouddn.com/styles/home/app-a3c6f428c6.min.css{% endif %}">
-{% include "common/navigation.html" %}
-<div class="content page-home">
-    <div class="poetry unselectable">
-        <p>山，湖，游鱼</p>
-        <p>温柔的溪水</p>
-        <p>宁静的柏树</p>
+<html>
+    <head>
+        <title>Raddeana</title>
+        <link rel="bookmark" type="image/x-icon" href="https://raddeana-materials.oss-cn-hangzhou.aliyuncs.com/images/logo.png" />
+        <link rel="shortcut icon" href="https://raddeana-materials.oss-cn-hangzhou.aliyuncs.com/images/logo.png">
+        <link href="https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/pace/pace-theme-flash.min.css" rel="stylesheet">
+        <script type="text/javascript" src="https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/pace/pace.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/extra/normalize.css" />
+    </head>
+    <body>
+        <div class="content page-home">
+            <div class="poetry unselectable">
+                <p>山，湖，游鱼</p>
+                <p>温柔的溪水</p>
+                <p>宁静的柏树</p>
 
-        <p>海，码头，游轮</p>
-        <p>凌乱的礁石</p>
-        <p>腼腆的海鸥</p>
-    </div>
-</div>
-<footer class="footer-info"> 
-    @Mulberry Profession In Certain Filed.
-</footer>
-{% include "common/footer.html" %}
-<script type="text/javascript" src="{% if env === 'development' %}/libs/three/three.min.js{% else %}http://ocgkyeaew.bkt.clouddn.com/libs/three/three.min.js{% endif %}"></script>
-<script type="text/javascript" src="{% if env === 'development' %}/scripts/home/app.js{% else %}http://ocgkyeaew.bkt.clouddn.com/scripts/home/app-7598b066f6.min.js{% endif %}"></script>
-</body>
+                <p>海，码头，游轮</p>
+                <p>凌乱的礁石</p>
+                <p>腼腆的海鸥</p>
+            </div>
+        </div>
+        <footer class="footer-info"> 
+            @Philip Profession In Certain Filed.
+        </footer>
+        <script text="text/javascript" src="https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/three.min.js"></script>
+    </body>
 </html>
