@@ -12,7 +12,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const ManifestPlugin = require('webpack-plugin-manifest')
 
+// 配置
 const config = require('../config')
 const utils = require('./utils')
 const env = config.build.env
@@ -113,6 +115,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
     
+    // manifest file
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      prettyPrint: true
+    })
     // // copy custom static assets
     // new CopyWebpackPlugin([
     //   {
