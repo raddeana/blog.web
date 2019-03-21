@@ -11,6 +11,7 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -35,29 +36,24 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'forget-password.html',
-      template: 'src/html/forget-password.html',
-      chunks: ['rainbow-blender', 'forget-password'],
+      filename: 'app.html',
+      template: 'templates/app.html',
+      chunks: ['app'],
       xhtml: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'login.html',
-      template: 'src/html/login.html',
-      chunks: ['rainbow-blender', 'login'],
+      filename: 'home.html',
+      template: 'templates/home.html',
+      chunks: ['home'],
       xhtml: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'register.html',
-      template: 'src/html/register.html',
-      chunks: ['rainbow-blender', 'register'],
+      filename: 'voyage.html',
+      template: 'templates/voyage.html',
+      chunks: ['voyage'],
       xhtml: true
     }),
-    new HtmlWebpackPlugin({
-      filename: 'reset-password.html',
-      template: 'src/html/reset-password.html',
-      chunks: ['rainbow-blender', 'reset-password'],
-      xhtml: true
-    }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    new VueLoaderPlugin()
   ]
 })

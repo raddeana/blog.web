@@ -13,8 +13,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const ManifestPlugin = require('webpack-plugin-manifest')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-// 配置
 const config = require('../config')
 const utils = require('./utils')
 const env = config.build.env
@@ -32,7 +32,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[contenthash].js'),
     chunkFilename: utils.assetsPath('js/[name].[contenthash].js'),
-    publicPath: 'https://raddeana-portal.oss-cn-hangzhou.aliyuncs.com'
+    publicPath: 'https://raddeana-admin.oss-cn-hangzhou.aliyuncs.com/'
   },
   optimization: {
     minimize: true,
@@ -65,51 +65,42 @@ const webpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'forget-password.html',
-      template: 'src/html/forget-password.html',
+      filename: 'app.html',
+      template: 'templates/app.html',
+      chunks: ['common', 'app'],
+      xhtml: true,
+      inject:true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
-      },
-      chunks: ['rainbow-blender', 'forget-password'],
-      xhtml: true
+      }
     }),
 
     new HtmlWebpackPlugin({
-      filename: 'login.html',
-      template: 'src/html/login.html',
+      filename: 'home.html',
+      template: 'templates/home.html',
+      chunks: ['common', 'home'],
+      xhtml: true,
+      inject:true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
-      },
-      chunks: ['rainbow-blender', 'login'],
-      xhtml: true
+      }
     }),
 
     new HtmlWebpackPlugin({
-      filename: 'register.html',
-      template: 'src/html/register.html',
+      filename: 'voyage.html',
+      template: 'templates/voyage.html',
+      chunks: ['common', 'voyage'],
+      xhtml: true,
+      inject:true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
-      },
-      chunks: ['rainbow-blender', 'register'],
-      xhtml: true
-    }),
-
-    new HtmlWebpackPlugin({
-      filename: 'reset-password.html',
-      template: 'src/html/reset-password.html',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      chunks: ['rainbow-blender', 'reset-password'],
-      xhtml: true
+      }
     }),
 
     // keep module.id stable when vender modules does not change
@@ -119,15 +110,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     new ManifestPlugin({
       fileName: 'manifest.json',
       prettyPrint: true
-    })
-    // // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.build.assetsSubDirectory,
-    //     ignore: ['.*']
-    //   }
-    // ])
+    }),
+    new VueLoaderPlugin()
   ]
 })
 
