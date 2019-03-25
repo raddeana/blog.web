@@ -1,3 +1,31 @@
+.button {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    border: none;
+    background: #b2e2ff;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    box-shadow: 1px 1px 9px #d4d4d4;
+    font-family: cursive;
+    transition: all .1s linear;
+    z-index: 1;
+
+    &:hover {
+        background: #9fd7f9;
+        box-shadow: 1px 1px 5px #d4d4d4;
+        cursor: pointer;
+    }
+
+    &:active {
+        background: #4eace4;
+        box-shadow: 1px 1px 1px #d4d4d4;
+    }
+}
+
 .poetry {
     position: absolute;
     right: 50px;

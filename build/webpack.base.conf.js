@@ -14,7 +14,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    'app': './src/app.js',
+    'app': './src/app/main.js',
     'home': './src/home.js',
     'voyage': './src/voyage.js'
   },
@@ -22,7 +22,8 @@ module.exports = {
     path: config.build.assetsRoot,
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
