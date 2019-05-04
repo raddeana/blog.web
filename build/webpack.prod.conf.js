@@ -32,7 +32,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('js/[name].[contenthash].js'),
         chunkFilename: utils.assetsPath('js/[name].[contenthash].js'),
-        publicPath: 'https://raddeana-admin.oss-cn-hangzhou.aliyuncs.com/'
+        publicPath: 'https://raddeana.oss-cn-hangzhou.aliyuncs.com/'
     },
     optimization: {
         minimize: true,
