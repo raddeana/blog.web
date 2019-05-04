@@ -9,7 +9,7 @@ import router from './router'
 import store from './store'
 
 import '../../theme/index.css'
-import '../scss/app.scss'
+import '../scss/blog.scss'
 
 Vue.use(Element)
 Vue.config.productionTip = false

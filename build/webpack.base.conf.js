@@ -14,7 +14,7 @@ function resolve (dir) {
 
 module.exports = {
     entry: {
-        'app': './src/app/main.js',
+        'blog': './src/blog/main.js',
         'home': './src/home.js',
         'voyage': './src/voyage.js'
     },
