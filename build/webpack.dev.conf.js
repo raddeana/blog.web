@@ -13,17 +13,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-    baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
-
 module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     module: {
         rules: utils.styleLoaders({
         sourceMap: config.dev.cssSourceMap
         })
+    },
+    devServer: {
+        historyApiFallback:{
+            index: '/index.html'
+        },
+        port: config.dev.port,
+        contentBase: './',
+        inline: true,
+        progress: true,
+        open: true,
+        hot: true,
+        hotOnly: true,
+        compress: true,
+        host: config.dev.host
     },
     // cheap-module-eval-source-map is faster for development
     devtool: '#cheap-module-eval-source-map',
