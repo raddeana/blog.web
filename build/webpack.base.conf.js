@@ -25,6 +25,30 @@ module.exports = {
         publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
         libraryTarget: 'umd'
     },
+    optimization: {
+        splitChunks: {
+            name: 'common',
+            minChunks: 1,
+            chunks: 'all',
+            cacheGroups: {
+                libs: {
+                    name: 'common',
+                    minChunks: 2,
+                    reuseExistingChunk: true,
+                    priority: 5
+                },
+                vendor: {
+                    name: 'vendor',
+                    test: /node_modules/,
+                    chunks: 'all',
+                    priority: 10
+                }
+           }
+        },
+        runtimeChunk: {
+            name: 'runtime'
+        }
+    },
     module: {
         rules: [{
             test: /\.(js|vue)$/,
