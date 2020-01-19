@@ -13,36 +13,26 @@
                 text-color="#fff"
                 active-text-color="#ffd04b"
             >
-                <router-link to="/">
-                    <el-menu-item index="article">
-                        <i class="el-icon-menu"></i>
-                        <span slot="title">文章</span>
-                    </el-menu-item>
-                </router-link>
-                <router-link to="/projects">
-                    <el-menu-item index="project">
-                        <i class="el-icon-document"></i>
-                        <span slot="title">项目计划</span>
-                    </el-menu-item>
-                </router-link>
-                <router-link to="/events">
-                    <el-menu-item index="event">
-                        <i class="el-icon-setting"></i>
-                        <span slot="title">事件</span>
-                    </el-menu-item>
-                </router-link>
+                <el-menu-item index="article">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">文章</span>
+                </el-menu-item>
+                <el-menu-item index="project">
+                    <i class="el-icon-document"></i>
+                    <span slot="title">项目计划</span>
+                </el-menu-item>
+                <el-menu-item index="event">
+                    <i class="el-icon-setting"></i>
+                    <span slot="title">事件</span>
+                </el-menu-item>
             </el-menu>
             <el-dropdown class="actions">
                 <span class="el-dropdown-link">
                     已登录<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                    <router-link to="/user-center">
-                        <el-dropdown-item>用户中心</el-dropdown-item>
-                    </router-link>
-                    <a href="/logout">
-                        <el-dropdown-item>登出</el-dropdown-item>
-                    </a>
+                    <el-dropdown-item>用户中心</el-dropdown-item>
+                    <el-dropdown-item>登出</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>

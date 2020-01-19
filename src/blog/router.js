@@ -8,8 +8,16 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [{
         path: '/',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "articles" */ './views/home.vue')
+    }, {
+        path: '/articles',
         name: 'articles',
         component: () => import(/* webpackChunkName: "articles" */ './views/articles.vue')
+    }, {
+        path: '/article/:id',
+        name: 'article',
+        component: () => import(/* webpackChunkName: "articles" */ './views/article.vue')
     }, {
         path: '/projects',
         name: 'projects',
