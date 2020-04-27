@@ -1,16 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+/**
+ * 全局状态管理
+ * @author Philip
+ */
 
-Vue.use(Vuex)
+import content from './Content'
+import user from './User'
 
-export default new Vuex.Store({
-    state: {
-
-    },
-    mutations: {
-
-    },
-    actions: {
-
-    }
-})
+export default {
+    content,
+    user
+}
