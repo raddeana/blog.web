@@ -7,33 +7,49 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
-});
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
   module: {
     rules: utils.styleLoaders({
-      sourceMap: config.dev.cssSourceMap
+      sourceMap: config.dev.cssSourceMap,
+      extract: true,
+      dev: true
     })
+  },
+  devServer: {
+    historyApiFallback:{
+      index: '/index.html'
+    },
+    port: config.dev.port,
+    contentBase: './',
+    inline: true,
+    progress: true,
+    open: false,
+    hot: true,
+    compress: false,
+    host: config.dev.host
   },
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',
   plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
-    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'blog.html',
       template: 'templates/blog.html',
-      chunks: ['runtime', 'utils', 'vendor', 'blog'],
+      chunks: ['blog'],
       xhtml: true
     }),
     new HtmlWebpackPlugin({

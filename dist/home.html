@@ -27,7 +27,7 @@
 				top: 0;
 				background: transparent;
 				z-index: -1;
-			}</style><link href=https://raddeana.oss-cn-hangzhou.aliyuncs.com/css/home.d08d8438290d66aa2edb.css rel=stylesheet></head><body><a href=/app class="button button__entry-blog">博客</a><div class=poetry><p>山，湖，游鱼</p><p>温柔的溪水</p><p>宁静的柏树</p><p>海，码头，游轮</p><p>凌乱的礁石</p><p>腼腆的海鸥</p></div><footer class=footer-info>@Philip Profession In Certain Filed.</footer><script text=text/javascript src=https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/three.js></script><script text=text/javascript src=https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/WebGL.js></script><script text=text/javascript src=https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/GPUComputationRenderer.js></script><script id=fragmentShaderPosition type=x-shader/x-fragment>uniform float time;
+			}</style><link href=https://raddeana-robot.oss-cn-hangzhou.aliyuncs.com/css/home.e1699348128560e34767.css rel=stylesheet></head><body><a href=/blog class="button button__entry-blog">博客</a><div class=poetry><p>山，湖，游鱼</p><p>温柔的溪水</p><p>宁静的柏树</p><p>海，码头，游轮</p><p>凌乱的礁石</p><p>腼腆的海鸥</p></div><footer class=footer-info>@Philip Profession In Certain Filed.</footer><script text=text/javascript src=https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/three.js></script><script text=text/javascript src=https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/WebGL.js></script><script text=text/javascript src=https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/threejs/GPUComputationRenderer.js></script><script id=fragmentShaderPosition type=x-shader/x-fragment>uniform float time;
 			uniform float delta;
 
 			void main()	{
@@ -72,17 +72,15 @@
 
 			const float SPEED_LIMIT = 9.0;
 
-			float rand( vec2 co ){
+			float rand (vec2 co) {
 				return fract( sin( dot( co.xy, vec2(12.9898,78.233) ) ) * 43758.5453 );
 			}
 
-			void main() {
-
+			void main () {
 				zoneRadius = separationDistance + alignmentDistance + cohesionDistance;
 				separationThresh = separationDistance / zoneRadius;
 				alignmentThresh = ( separationDistance + alignmentDistance ) / zoneRadius;
 				zoneRadiusSquared = zoneRadius * zoneRadius;
-
 
 				vec2 uv = gl_FragCoord.xy / resolution.xy;
 				vec3 birdPosition, birdVelocity;
@@ -152,14 +150,13 @@
 
 						percent = distSquared / zoneRadiusSquared;
 
-						if ( percent < separationThresh ) { // low
+						if (percent < separationThresh) { // low
 
 							// Separation - Move apart for comfort
 							f = ( separationThresh / percent - 1.0 ) * delta;
 							velocity -= normalize( dir ) * f;
 
-						} else if ( percent < alignmentThresh ) { // high
-
+						} else if (percent < alignmentThresh) { // high
 							// Alignment - fly the same direction
 							float threshDelta = alignmentThresh - separationThresh;
 							float adjustedPercent = ( percent - separationThresh ) / threshDelta;
@@ -168,9 +165,7 @@
 
 							f = ( 0.5 - cos( adjustedPercent * PI_2 ) * 0.5 + 0.5 ) * delta;
 							velocity += normalize( birdVelocity ) * f;
-
 						} else {
-
 							// Attraction / Cohesion - move closer
 							float threshDelta = 1.0 - alignmentThresh;
 							float adjustedPercent = ( percent - alignmentThresh ) / threshDelta;
@@ -178,7 +173,6 @@
 							f = ( 0.5 - ( cos( adjustedPercent * PI_2 ) * -0.5 + 0.5 ) ) * delta;
 
 							velocity += normalize( dir ) * f;
-
 						}
 
 					}
@@ -272,7 +266,9 @@
 			}
 
 			var hash = document.location.hash.substr( 1 );
-			if (hash) hash = parseInt( hash, 0 );
+			
+			if (hash) 
+				hash = parseInt( hash, 0 );
 
 			/* TEXTURE WIDTH FOR SIMULATION */
 			var WIDTH = hash || 32;
@@ -473,13 +469,13 @@
 				};
 
 				// ShaderMaterial
-				var material = new THREE.ShaderMaterial( {
+				var material = new THREE.ShaderMaterial({
 					uniforms: birdUniforms,
 					vertexShader: document.getElementById( 'birdVS' ).textContent,
 					fragmentShader: document.getElementById( 'birdFS' ).textContent,
 					side: THREE.DoubleSide
 
-				} );
+				});
 
 				var birdMesh = new THREE.Mesh( geometry, material );
 				birdMesh.rotation.y = Math.PI / 2;
@@ -603,4 +599,4 @@
 
 				renderer.render( scene, camera );
 
-			}</script><script type=text/javascript src=https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/common.f3e2a6ffb5976f684ce1.js></script><script type=text/javascript src=https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/home.daba7daf03334de79931.js></script></body></html>
+			}</script><script type=text/javascript src=https://raddeana-robot.oss-cn-hangzhou.aliyuncs.com/js/runtime.ae143e9724cdaa36e696.js></script><script type=text/javascript src=https://raddeana-robot.oss-cn-hangzhou.aliyuncs.com/js/home.bc95048fb0a63e948aae.js></script></body></html>

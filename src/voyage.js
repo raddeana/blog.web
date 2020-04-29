@@ -2,6 +2,8 @@
  * 海盗
  * @author Philip
  */
+import './less/voyage.less'
+
 const THREE = window.THREE
 const WEBGL = window.WEBGL
 

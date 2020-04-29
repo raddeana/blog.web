@@ -3,9 +3,9 @@
  * @author Philip
  */
 
-import { observable, action } from 'mobx';
+import { observable, action } from 'mobx'
 
-export default class Content {
+class Content {
     // 利用
     @observable pageSize = 10
     @observable pageIndex = 1
@@ -23,7 +23,7 @@ export default class Content {
     * 更新内容列表
     * @Action
     */
-    @action fetchContentList (filter) {
+    @action fetchContentList (content) {
         this.content = content
     }
 }

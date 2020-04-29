@@ -21,8 +21,7 @@ exports.cssLoaders = function (options) {
   const cssLoader = {
     loader: 'css-loader',
     options: {
-      minimize: process.env.NODE_ENV === 'production',
-      sourceMap: options.sourceMap,
+      sourceMap: options.sourceMap
     },
   };
 
@@ -39,22 +38,22 @@ exports.cssLoaders = function (options) {
       });
     }
 
-    // Extract CSS when that option is specified
-    // (which is the case during production build)
     if (options.extract) {
-      loaders.unshift(MiniCssExtractPlugin.loader);
+      loaders.unshift({
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          hmr: options.dev,
+        },
+      });
     }
     
-    return ['style-loader'].concat(loaders);
+    return loaders;
   }
 
-  // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus'),
   };
@@ -67,6 +66,7 @@ exports.styleLoaders = function (options) {
   
   for (const extension in loaders) {
     const loader = loaders[extension];
+
     output.push({
       test: new RegExp('\\.' + extension + '$'),
       use: loader,

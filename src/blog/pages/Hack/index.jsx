@@ -2,10 +2,10 @@
  * 黑客页面
  * @author Philip
  */
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 export default class Hack extends Component {
     render () {
-        return ''
+        return 'Hack'
     }
 }

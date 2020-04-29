@@ -2,4 +2,4 @@
  * 首页
  * @author Philip
  */
-import './scss/home.scss'
+import './less/home.less'

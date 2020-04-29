@@ -20,7 +20,8 @@ const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
-      extract: true
+      extract: true,
+      dev: false
     })
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
@@ -47,6 +48,29 @@ const webpackConfig = merge(baseWebpackConfig, {
         }
       })
     ],
+    splitChunks: {
+      name: true,
+      chunks: 'all',
+      maxInitialRequests: 10,
+      cacheGroups: {
+        utils: {
+          name: 'utils',
+          chunks: 'all',
+          minChunks: 2,
+          priority: -20,
+          minSize: 0
+        },
+        vendor: {
+          name: 'vendor',
+          test: /node_modules/,
+          chunks: 'all',
+          priority: -10
+        }
+     }
+    },
+    runtimeChunk: {
+      name: 'runtime'
+    }
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -72,26 +96,38 @@ const webpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'robot.html',
-      template: 'src/html/robot.html',
+      filename: 'home.html',
+      template: 'templates/home.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
       },
-      chunks: ['runtime', 'utils', 'vendor', 'robot'],
+      chunks: ['runtime', 'home'],
       xhtml: true
     }),
 
     new HtmlWebpackPlugin({
       filename: 'talk.html',
-      template: 'src/html/talk.html',
+      template: 'templates/voyage.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
       },
-      chunks: ['runtime', 'utils', 'vendor', 'talk'],
+      chunks: ['runtime', 'voyage'],
+      xhtml: true
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: 'blog.html',
+      template: 'templates/blog.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunks: ['runtime', 'utils', 'vendor', 'blog'],
       xhtml: true
     }),
 

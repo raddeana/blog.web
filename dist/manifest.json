@@ -1,15 +1,7 @@
 {
-  "common.f3e2a6ffb5976f684ce1.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/common.f3e2a6ffb5976f684ce1.js",
-  "articles.293a7dc1324d8ea21f2e.css": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/css/articles.293a7dc1324d8ea21f2e.css",
-  "articles.b9f8f7d29580ad4e384c.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/articles.b9f8f7d29580ad4e384c.js",
-  "blog.4de9f6eccfe246e9a740.css": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/css/blog.4de9f6eccfe246e9a740.css",
-  "blog.b1bfc4e71bd7d8eadf5d.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/blog.b1bfc4e71bd7d8eadf5d.js",
-  "events.293a7dc1324d8ea21f2e.css": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/css/events.293a7dc1324d8ea21f2e.css",
-  "events.fdf76b21d566affaa357.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/events.fdf76b21d566affaa357.js",
-  "home.d08d8438290d66aa2edb.css": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/css/home.d08d8438290d66aa2edb.css",
-  "home.daba7daf03334de79931.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/home.daba7daf03334de79931.js",
-  "projects.ec53f2183610de482521.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/projects.ec53f2183610de482521.js",
-  "user-center.293a7dc1324d8ea21f2e.css": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/css/user-center.293a7dc1324d8ea21f2e.css",
-  "user-center.91a36860f685c002faa3.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/user-center.91a36860f685c002faa3.js",
-  "voyage.c40927412d4ee3c640c5.js": "https://raddeana.oss-cn-hangzhou.aliyuncs.com/js/voyage.c40927412d4ee3c640c5.js"
+  "runtime.ae143e9724cdaa36e696.js": "https://raddeana-robot.oss-cn-hangzhou.aliyuncs.comjs/runtime.ae143e9724cdaa36e696.js",
+  "home.e1699348128560e34767.css": "https://raddeana-robot.oss-cn-hangzhou.aliyuncs.comcss/home.e1699348128560e34767.css",
+  "home.bc95048fb0a63e948aae.js": "https://raddeana-robot.oss-cn-hangzhou.aliyuncs.comjs/home.bc95048fb0a63e948aae.js",
+  "voyage.cd0a4c363c473e152ead.css": "https://raddeana-robot.oss-cn-hangzhou.aliyuncs.comcss/voyage.cd0a4c363c473e152ead.css",
+  "voyage.9f48d0dd3b3064efeed8.js": "https://raddeana-robot.oss-cn-hangzhou.aliyuncs.comjs/voyage.9f48d0dd3b3064efeed8.js"
 }
