@@ -3,10 +3,12 @@
  * @author Philip
  */
 
-import content from './Content'
-import user from './User'
+import contentList from './contentList'
+import breadcrumb from './breadcrumb'
+import user from './user'
 
 export default {
-    content,
+    breadcrumb,
+    contentList,
     user
 }

@@ -43,6 +43,7 @@ exports.cssLoaders = function (options) {
         loader: MiniCssExtractPlugin.loader,
         options: {
           hmr: options.dev,
+          reloadAll: true
         },
       });
     }

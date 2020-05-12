@@ -3,12 +3,13 @@
  * @author Philip
  */
 import React, { Component } from 'react'
-import Test from './test.jsx'
+import './index.less'
 
 export default class Content extends Component {
     render () {
         return (
-            <div class="page page-content">
+            <div class="page page-content-list">
+                <div class="inner-orb"></div>
             </div>
         )
     }

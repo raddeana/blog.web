@@ -7,24 +7,30 @@ import ReactDOM from 'react-dom'
 
 import {
     Route,
-    BrowserRouter
+    Redirect,
+    HashRouter
 } from 'react-router-dom'
 
 import { Provider } from 'mobx-react'
 
-import Layout from './layout'
+import LayoutWrapper from './LayoutWrapper'
 import store from './store'
 
 import './app.less'
 
 ReactDOM.render(
     <Provider {...store}>
-        <BrowserRouter>
+        <HashRouter>
             <Route
                 path="/"
-                component={Layout}
+                component={LayoutWrapper}
             />
-        </BrowserRouter>
+            <Redirect path="/" to="/content-list" />
+        </HashRouter>
     </Provider>,
     document.getElementById('app')
 )
+
+if (module.hot) {
+    module.hot.accept()
+}

@@ -28,6 +28,7 @@ module.exports = merge(baseWebpackConfig, {
     progress: true,
     open: false,
     hot: true,
+    hotOnly: true,
     compress: false,
     host: config.dev.host
   },
@@ -43,8 +44,9 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'blog.html',

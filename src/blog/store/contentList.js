@@ -5,7 +5,7 @@
 
 import { observable, action } from 'mobx'
 
-class Content {
+class ContentList {
     // 利用
     @observable pageSize = 10
     @observable pageIndex = 1
@@ -28,4 +28,4 @@ class Content {
     }
 }
 
-export default new Content()
+export default new ContentList()
