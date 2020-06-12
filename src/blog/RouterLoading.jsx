@@ -4,11 +4,10 @@
  */
 import { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import breadcrumb from './store/breadcrumb'
 
 import './RouterLoading.less'
 
-function RouterLoading (props) {
+function RouterLoading () {
     // componentDidMount && componentDidUpdate
     useEffect(() => {
         console.log(' first load ')

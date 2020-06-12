@@ -3,15 +3,21 @@
  * @author Philip
  */
 'use strict'
-process.env.NODE_ENV = 'production';
-
 const ora = require('ora');
 const rm = require('rimraf');
 const path = require('path');
 const chalk = require('chalk');
 const webpack = require('webpack');
 const config = require('../config');
-const webpackConfig = require('./webpack.prod.conf');
+let webpackConfig = null
+
+if (process.env.NODE_ENV === 'production') {
+  webpackConfig = require('./webpack.prod.conf');
+}
+
+if (process.env.NODE_ENV === 'analysis') {
+  webpackConfig = require('./webpack.analysis.conf');
+}
 
 const spinner = ora('building for production...');
 spinner.start();

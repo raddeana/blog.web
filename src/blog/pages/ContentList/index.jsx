@@ -9,7 +9,9 @@ export default class Content extends Component {
     render () {
         return (
             <div class="page page-content-list">
-                <div class="inner-orb"></div>
+                <div class="main-orb">
+                    <div class="inner-orb"></div>
+                </div>
             </div>
         )
     }
