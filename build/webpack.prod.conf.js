@@ -33,21 +33,6 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          parallel: true,
-          mangle: false,
-          cache: false,
-          sourceMap: false,
-          extractComments: false,
-          output: {
-            comments: false,
-            beautify: false
-          }
-        }
-      })
-    ],
     splitChunks: {
       name: true,
       chunks: 'all',
