@@ -75,7 +75,7 @@
         "webpack-dev-server": "^3.10.3",
         "webpack-merge": "^4.2.2",
         "webpack-plugin-manifest": "^1.1.0",
-        "yargs-parser": "^10.0.0"
+        "yargs-parser": "^19.0.4"
     },
     "browserslist": [
         "> 1%",
