@@ -1,22 +1,24 @@
-## blog.web
-blog web
+# vue3.0
 
-### project setup
+## Project setup
 ```
 npm install
 ```
 
-### compiles and hot-reloads for development
+### Compiles and hot-reloads for development
 ```
-npm run dev
+npm run serve
 ```
 
-### compiles and minifies for production
+### Compiles and minifies for production
 ```
 npm run build
 ```
 
-### run lint test
+### Lints and fixes files
 ```
 npm run lint
 ```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
