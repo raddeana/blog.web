@@ -24,7 +24,7 @@
             @open="handleOpen"
             @close="handleClose"
         >
-            <el-submenu index="1">
+            <el-sub-menu index="1">
                 <template #title>
                     <i class="el-icon-location"></i>
                     <span>导航一</span>
@@ -34,8 +34,8 @@
                     <el-menu-item index="1-1">选项1</el-menu-item>
                     <el-menu-item index="1-2">选项2</el-menu-item>
                 </el-menu-item-group>
-            </el-submenu>
-            <el-submenu index="1">
+            </el-sub-menu>
+            <el-sub-menu index="1">
                 <template #title>
                     <i class="el-icon-location"></i>
                     <span>导航一</span>
@@ -45,7 +45,7 @@
                     <el-menu-item index="1-1">选项1</el-menu-item>
                     <el-menu-item index="1-2">选项2</el-menu-item>
                 </el-menu-item-group>
-            </el-submenu>
+            </el-sub-menu>
         </el-menu>
     </el-aside>
     <el-main>

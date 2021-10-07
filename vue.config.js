@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CompressionPlugin = require('compression-webpack-plugin');
+const compressionPlugin = require('compression-webpack-plugin');
+const Components = require('unplugin-vue-components/webpack');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 
 module.exports = {
   outputDir: 'dist',
@@ -20,25 +21,25 @@ module.exports = {
     } : false
   },
   chainWebpack: (config) => {
-    config
-      .optimization.splitChunks({
-        chunks: 'all',
-        cacheGroups: {
-          vantUi: {
-            name: 'chunk-vant-ui',
-            priority: 20,
-            test: /[\\/]node_modules[\\/]_?vant(.*)/
-          }
-        }
-      });
+    // config
+    //   .optimization.splitChunks({
+    //     chunks: 'all',
+    //     cacheGroups: {
+    //       element: {
+    //         name: 'chunk-element-ui',
+    //         priority: 20,
+    //         test: /[\\/]node_modules[\\/]_?element(.*)/
+    //       }
+    //     }
+    //   });
   },
   configureWebpack: (config) => {
-    if (process.env.NODE_ENV === 'production') {
-      if (process.env.use_analyzer){
-        config.plugins.push(new BundleAnalyzerPlugin());
-      }
+    config.plugins.push(Components({
+      resolvers: [ElementPlusResolver()],
+    }));
 
-      config.plugins.push(new CompressionPlugin({
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins.push(new compressionPlugin({
         algorithm: 'gzip',
         test: /\.(js|css)$/,
         threshold: 10240,

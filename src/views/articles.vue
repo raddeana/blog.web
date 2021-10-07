@@ -2,10 +2,8 @@
 <div class="infinite-list-wrapper">
     <ul
         class="list"
-        v-infinite-scroll="loadList"
-        :infinite-scroll-disabled="isDisabled"
     >
-        <li v-for="i in count" class="list-item">{{ i }}</li>
+        <li v-for="i in count" class="list-item" :key="i.id">{{ i }}</li>
     </ul>
     <p v-if="loading">加载中...</p>
     <p v-if="noMore">没有更多了</p>
