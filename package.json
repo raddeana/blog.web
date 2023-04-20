@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.22.0",
-    "element-plus": "^1.1.0-beta.19",
+    "element-plus": "^2.1.0",
     "qiankun": "^2.5.0",
     "vue": "^3.2.19",
     "vue-router": "^4.0.11",
